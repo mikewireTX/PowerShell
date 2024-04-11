@@ -1,5 +1,5 @@
 ﻿﻿#######################################################
-#       Random assortment of PS commands
+#       Getting Started with PowerCLI 
 #######################################################
 # Author(s):  Mike Ross  
 # Github:  https://github.com/mikewireTX
@@ -7,20 +7,20 @@
 #######################################################
 #
 #
-#Install PowerCLI
+# Install PowerCLI
 Install-Module VMware.PowerCLI
-#Run this for Powershell ISE integration - install NuGet when prompted 
-#Find-Module -Name VMware.PowerCLI
+# Run this for Powershell ISE integration - install NuGet when prompted 
+# Find-Module -Name VMware.PowerCLI
 Install-Module -Name VMware.PowerCLI
-#Set the executin policy and limit scope to CurrentUser (you)
+# Set the executin policy and limit scope to CurrentUser (you)
 Set-ExecutionPolicy Bypass -Scope CurrentUser
-#Set the CEIP to false
+# Set the CEIP to false
 Set-PowerCLIConfiguration -Scope User -ParticipateInCEIP $false
-#Connect to vCenter/ESXi
+# Connect to vCenter/ESXi
 Connect-VIServer -Server mr-vcsa.mr.pvt
-#Disconnect from the single server
+# Disconnect from the single server
 Disconnect-VIServer -Server mr-vcsa.mr.pvt
-#Disconnect from ALL vCenter/ESXi (force all active connections to disconnect)
+# Disconnect from ALL vCenter/ESXi (force all active connections to disconnect)
 Disconnect-VIServer -Force
 
 Get-vm | get-member
