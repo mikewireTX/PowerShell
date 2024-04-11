@@ -1,4 +1,13 @@
-﻿#Install PowerCLI
+﻿﻿#######################################################
+#       Random assortment of PS commands
+#######################################################
+# Author(s):  Mike Ross  
+# Github:  https://github.com/mikewireTX
+# Web: https://mikewire.com/
+#######################################################
+#
+#
+#Install PowerCLI
 Install-Module VMware.PowerCLI
 #Run this for Powershell ISE integration - install NuGet when prompted 
 #Find-Module -Name VMware.PowerCLI
