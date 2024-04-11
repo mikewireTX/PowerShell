@@ -4,8 +4,8 @@
 # Author(s):  Mike Ross  
 # Github:  https://github.com/mikewireTX
 # Web: https://mikewire.com/
+#######################################################
 #
-########################
 # Connect to vCenter
 $creds = Get-Credential
 # Put your vCenter name here
@@ -18,3 +18,4 @@ Get-Cluster -PipelineVariable clustername | Get-VMHost | Get-VM | Where-Object {
 Where-Object {$_.IsoPath -ne $null} | Select-Object -Property @{N='vCenter'; E={([uri]($_.Parent.ExtensionData.Client.ServiceUrl)).Host}}, @{N=’Cluster’;E={$clustername.Name}}, @{N='VM'; E={$_.Parent.Name }}, @{N='ISO'; E={$_.IsoPath}} | 
 Format-Table
 # End
+#######################################################
