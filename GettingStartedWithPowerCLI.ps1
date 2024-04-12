@@ -29,6 +29,9 @@ Set-PowerCLIConfiguration -Scope User -ParticipateInCEIP $false
 # Connect to vCenter - sub in your hostname below:
 Connect-VIServer -Server <yourserver>#
 #
+# Check what VIServer you are connected to:
+$global:defaultviserver
+#
 # Update PowerCLI:
 Update-Module -Name VMware.PowerCLI
 #
