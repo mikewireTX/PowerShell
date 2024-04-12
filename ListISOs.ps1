@@ -9,7 +9,7 @@
 # Connect to vCenter
 $creds = Get-Credential
 # Put your vCenter name here
-$server = "mr-vcsa.mr.pvt"
+$server = <yourserver>
 Connect-VIServer -Server $server -Credential $creds -Force
 #########################
 #########################
