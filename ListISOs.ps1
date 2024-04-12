@@ -18,6 +18,6 @@ Get-Cluster -PipelineVariable clustername | Get-VMHost | Get-VM | Where-Object {
 Where-Object {$_.IsoPath -ne $null} | Select-Object -Property @{N='vCenter'; E={([uri]($_.Parent.ExtensionData.Client.ServiceUrl)).Host}}, @{N=’Cluster’;E={$clustername.Name}}, @{N='VM'; E={$_.Parent.Name }}, @{N='ISO'; E={$_.IsoPath}} | 
 Format-Table
 # Disconnect from VIServer
-Disconnect-VIServer -Server <yourserver>
+Disconnect-VIServer -Server $server
 # End
 #######################################################
