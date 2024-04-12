@@ -11,7 +11,7 @@
 # Check if PowerCLi is already installed (this is the depricated version)
 Get-PowerCLIVersion
 # 
-# This is a better cmdlet to run and is not depricated
+# This is a better cmdlet to run and is not deprecated
 Get-Module -Name VMware.* | Select-Object -Property Name,Version
 #
 # Use this cmdlet to install PowerCLI:
