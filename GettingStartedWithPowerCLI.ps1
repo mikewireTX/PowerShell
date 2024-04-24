@@ -26,6 +26,12 @@ Set-PowerCLIConfiguration -Scope User -ParticipateInCEIP $true
 # Set the CEIP to false:
 Set-PowerCLIConfiguration -Scope User -ParticipateInCEIP $false
 #
+#Uninstall PowerCLI Main module
+Get-Module VMware.PowerCLI -ListAvailable | Uninstall-Module -Force
+#
+#Uninstall PowerCLI VMware modules except for the main PowerCLI module
+(Get-Module VMware.PowerCLI -ListAvailable).RequiredModules | Uninstall-Module -Force
+#
 # Connect to vCenter - sub in your hostname below:
 Connect-VIServer -Server <yourserver>#
 #
