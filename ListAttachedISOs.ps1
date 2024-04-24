@@ -20,4 +20,4 @@ Format-Table
 # Disconnect from VIServer
 Disconnect-VIServer -Server $server
 # End
-#######################################################
+######################################################
