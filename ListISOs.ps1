@@ -9,7 +9,7 @@
 # Connect to vCenter
 $creds = Get-Credential
 # Put your vCenter name here
-$server = <yourserver>
+$server = Read-Host 'Input the vCenter server FQDN or IP'
 Connect-VIServer -Server $server -Credential $creds -Force
 #########################
 #########################
