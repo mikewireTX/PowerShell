@@ -41,6 +41,12 @@ Get-Module VMware.PowerCLI -ListAvailable | Uninstall-Module -Force
 # Connect to vCenter - sub in your hostname below:
 Connect-VIServer -Server <yourserver>
 #
+# Get a list VMs
+Get-VM
+#
+# Get a list of VM Hosts
+Get-VMHost
+#
 # Check what VIServer you are connected to:
 $global:defaultviserver
 #
