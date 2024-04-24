@@ -17,7 +17,7 @@ Get-Module -Name VMware.* | Select-Object -Property Name,Version
 # Use this cmdlet to install PowerCLI:
 Install-Module VMware.PowerCLI -Scope CurrentUser
 #
-# Cehck the PowerShell module path:
+# Check the PowerShell module path:
 $env:PSModulePath
 #
 # Set the execution policy to bypass and limit scope to CurrentUser (you):
