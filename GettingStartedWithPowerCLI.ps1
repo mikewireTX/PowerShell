@@ -17,6 +17,9 @@ Get-Module -Name VMware.* | Select-Object -Property Name,Version
 # Use this cmdlet to install PowerCLI:
 Install-Module VMware.PowerCLI -Scope CurrentUser
 #
+# Cehck the PowerShell module path:
+$env:PSModulePath
+#
 # Set the execution policy to bypass and limit scope to CurrentUser (you):
 Set-ExecutionPolicy Bypass -Scope CurrentUser
 #
@@ -26,6 +29,9 @@ Set-PowerCLIConfiguration -Scope User -ParticipateInCEIP $true
 # Set the CEIP to false:
 Set-PowerCLIConfiguration -Scope User -ParticipateInCEIP $false
 #
+# Update PowerCLI:
+Update-Module -Name VMware.PowerCLI
+#
 # Uninstall PowerCLI Main module
 Get-Module VMware.PowerCLI -ListAvailable | Uninstall-Module -Force
 #
@@ -33,7 +39,7 @@ Get-Module VMware.PowerCLI -ListAvailable | Uninstall-Module -Force
 (Get-Module VMware.PowerCLI -ListAvailable).RequiredModules | Uninstall-Module -Force
 #
 # Connect to vCenter - sub in your hostname below:
-Connect-VIServer -Server <yourserver>#
+Connect-VIServer -Server <yourserver>
 #
 # Check what VIServer you are connected to:
 $global:defaultviserver
