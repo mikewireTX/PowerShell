@@ -9,10 +9,11 @@
 # using PowerCLI - use at your own risk!
 #
 function ConnectvCenter {
-# Gather creds to connect to vCenter
-$creds = Get-Credential
 # Specify the vCenter Server to connect to
 $vcenter = Read-Host 'Input the vCenter server FQDN or IP to connect to'
+# Gather creds to connect to vCenter
+$creds = Get-Credential
+
 if (Connect-VIServer -Server $vcenter -Credential $creds -ErrorAction SilentlyContinue) {Write-Output 'Connected to '$vcenter'!'} 
     else {$Error[0] }
 } #end function
@@ -61,6 +62,7 @@ function ScanCluster-YesNoPrompt {
 
 if ( ConnectvCenter ) {
 
+
     $cluster = Read-Host 'Input the cluster name'
 
     if ( ScanCluster-YesNoPrompt -Prompt "Do you want to scan the cluster '$cluster'?" ) {
@@ -75,14 +77,14 @@ if ( ConnectvCenter ) {
 
     if ( ScanCluster-YesNoPrompt -Prompt "Do you want to detach the ISO's from cluster '$cluster'?" ) { 
 
-                Get-Cluster -Name $cluster | Get-VM | Get-CDDrive | where {$_.IsoPath -ne $null} | Set-CDDrive -NoMedia -Confirm:$False
-
+                Get-Cluster -Name $cluster | Get-VM | Get-CDDrive | where {$_.IsoPath -ne $null} | Set-CDDrive -NoMedia -Confirm:$False -Force        
         }
 
         else { write-host $Error }
 
   
 }
+
 
 else { write-host $Error }
 #End
